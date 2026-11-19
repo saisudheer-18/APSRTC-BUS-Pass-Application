@@ -1,0 +1,354 @@
+
+/* =========================
+   1. Global Reset
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f5f5;
+  color: #111111;
+  line-height: 1.6;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* =========================
+   2. Main Container
+========================= */
+.container {
+  width: calc(100% - 32px);
+  max-width: 680px;
+  margin: 36px auto;
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================
+   3. Header
+========================= */
+.form-header {
+  margin-bottom: 28px;
+}
+
+h1 {
+  margin: 0 0 12px;
+  color: #000000;
+  text-align: center;
+  font-size: clamp(24px, 4vw, 32px);
+  line-height: 1.3;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.intro {
+  margin: 0;
+  color: #555555;
+  text-align: center;
+  font-size: 15px;
+}
+
+/* =========================
+   4. Form Layout
+========================= */
+form {
+  display: grid;
+  gap: 20px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.field > label,
+.field legend {
+  padding: 0;
+  color: #111111;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* =========================
+   5. Inputs and Selects
+========================= */
+.field input:not([type="radio"]):not([type="checkbox"]),
+.field select,
+.field textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 11px 13px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  background: #ffffff;
+  color: #111111;
+  font-size: 15px;
+  transition: border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #777777;
+  opacity: 1;
+}
+
+.field textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.field select {
+  cursor: pointer;
+}
+
+/* Input focus */
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 2px solid #000000;
+  outline-offset: 2px;
+  border-color: #000000;
+}
+
+/* =========================
+   6. Gender Radio Buttons
+========================= */
+.gender-field {
+  gap: 10px;
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}
+
+.radio-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: #111111;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Black selected radio indicator */
+.radio-label input[type="radio"] {
+  appearance: auto;
+  -webkit-appearance: radio;
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  margin: 0;
+  accent-color: #000000;
+  cursor: pointer;
+}
+
+/* Visible keyboard focus */
+.radio-label input[type="radio"]:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 3px;
+}
+
+/* =========================
+   7. Buttons
+========================= */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.button-row button {
+  flex: 1 1 180px;
+  min-width: 0;
+  min-height: 46px;
+  padding: 12px 16px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  background: #000000;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease,
+              color 0.2s ease,
+              transform 0.2s ease;
+}
+
+.button-row button:hover {
+  background: #333333;
+}
+
+.button-row button:active {
+  transform: translateY(1px);
+}
+
+.button-row button:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 3px;
+}
+
+/* Clear button */
+.button-row button.clear-button {
+  background: #ffffff;
+  color: #000000;
+}
+
+.button-row button.clear-button:hover {
+  background: #eeeeee;
+}
+
+/* =========================
+   8. Application Preview
+========================= */
+.result {
+  margin-top: 30px;
+  padding: 22px;
+  border: 1px solid #dddddd;
+  border-radius: 6px;
+  background: #fafafa;
+  overflow-wrap: anywhere;
+}
+
+.result h2 {
+  margin: 0 0 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #000000;
+  color: #000000;
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+.result-list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+}
+
+.result-list > div {
+  display: grid;
+  grid-template-columns: minmax(130px, 0.8fr) minmax(0, 1.2fr);
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.result-list dt {
+  color: #444444;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.result-list dd {
+  min-width: 0;
+  margin: 0;
+  color: #111111;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+/* =========================
+   9. Demo Note
+========================= */
+.demo-note {
+  margin: 20px 0 0;
+  color: #555555;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* =========================
+   10. Responsive Layout
+========================= */
+@media (max-width: 720px) {
+  .container {
+    margin: 20px auto;
+    padding: 24px;
+  }
+
+  form {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: calc(100% - 24px);
+    margin: 12px auto;
+    padding: 20px 16px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .intro {
+    font-size: 14px;
+  }
+
+  .radio-group {
+    gap: 12px 16px;
+  }
+
+  .button-row {
+    flex-direction: column;
+  }
+
+  .button-row button {
+    width: 100%;
+    flex-basis: auto;
+  }
+
+  .result {
+    padding: 16px;
+  }
+
+  .result-list > div {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+}
+
+/* =========================
+   11. Reduced Motion
+========================= */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
